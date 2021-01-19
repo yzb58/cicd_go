@@ -10,4 +10,4 @@ RUN go build -mod=vendor -o server .
 FROM alpine
 COPY --from=builder /build/server /app/server
 WORKDIR /app
-RUN ./server
+ENTRYPOINT ./server
