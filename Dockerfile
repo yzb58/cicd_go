@@ -5,7 +5,7 @@ ENV GO111MODULE=on \
     GOARCH=am64
 WORKDIR /build
 COPY . .
-RUN go build -mod=vendor -o server .
+RUN go build -o server .
 
 FROM alpine
 COPY --from=builder /build/server /app/server
