@@ -1,4 +1,4 @@
-FROM golang:1.5.2 as builder
+FROM golang:1.5.2 AS builder
 ENV GO111MODULE=on \
     CGO_ENABLED=0 \
     GOOS=linux \
@@ -10,4 +10,4 @@ RUN go build -mod=vendor -o server .
 FROM alpine
 COPY --from=builder /build/server /app/server
 WORKDIR /app
-ENTRYPOINT ./server
+ENTRYPOINT ["./server"]
