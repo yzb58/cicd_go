@@ -3,7 +3,7 @@ ENV GO111MODULE=on \
     CGO_ENABLED=0 \
     GOOS=linux \
     GOARCH=am64
-WORKDIR /build
+WORKDIR /go/src
 COPY . .
 RUN go build -o server .
 
