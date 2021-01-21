@@ -5,6 +5,7 @@ ENV GO111MODULE=on \
     GOARCH=am64
 WORKDIR /go/src/CICD_GO_test
 COPY . .
+RUN ./make.bash --no-clean
 RUN go build -o server .
 
 FROM alpine
