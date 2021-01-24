@@ -3,7 +3,7 @@ ENV GO111MODULE on \
     CGO_ENABLED 0 \
     GOOS linux \
     GOARCH am64 \
-    GOPATH /bulid
+    GOPATH bulid
 WORKDIR /bulid/src/CICD_GO_test
 COPY . .
 RUN go build -o server
