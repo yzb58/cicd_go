@@ -3,12 +3,13 @@ ENV GO111MODULE=on \
 CGO_ENABLED=0 \
 GOOS=linux \
 GOARCH=amd64 \
-GOPATH=/bulid
-WORKDIR /bulid/src/CICD_GO_test
+GOPATH=/build
+WORKDIR /build/src/CICD_GO_test
 COPY . .
-RUN go build -o server
+RUN go build -o server .
+RUN pwd && ls
 
 FROM alpine
-COPY --from=builder /build/src/CICD_GO_test/server /app/server
+COPY --from=0 /build/src/CICD_GO_test/server /app/server
 WORKDIR /app
 ENTRYPOINT ["./server"]
